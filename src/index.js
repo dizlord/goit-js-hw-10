@@ -52,17 +52,19 @@ function clearCountryContainer() {
 function makeMarkupCountires(countries = []) {
   const markupCounries = countries
     .map(country => {
-      console.log(country);
+      // console.log(country);
       return `
         <li class="country-list__item">
-          <svg class="country-list__icon" width="30px" height="30px">
+          <svg class="country-list__icon" width="40px" height="30px">
             <use href="${country.flags.svg}"></use>
           </svg>
-          ${country.name.official}
+          <span class="country-list__countryName">
+            ${country.name.official}
+          </span>
         </li>
       `;
     })
-    .join();
+    .join('');
   console.log(markupCounries);
   refs.countryListUl.innerHTML = markupCounries;
 }

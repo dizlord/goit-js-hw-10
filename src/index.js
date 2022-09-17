@@ -15,6 +15,7 @@ refs.searchInput.addEventListener('input', debounce(onInput, 300));
 
 function onInput() {
   const searchName = String(refs.searchInput.value);
+  clearCountryContainer();
 
   if (searchName.trim()) {
     fetchCountries(searchName)
@@ -31,10 +32,7 @@ function onInput() {
       })
       .catch(error => {
         Notiflix.Notify.failure('Oops, there is no country with that name');
-        clearCountryContainer();
       });
-  } else {
-    clearCountryContainer();
   }
 }
 
